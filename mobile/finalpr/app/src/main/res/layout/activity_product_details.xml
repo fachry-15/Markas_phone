@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_margin="12dp"
+    app:cardCornerRadius="12dp"
+    app:cardUseCompatPadding="true"
+    tools:context=".ProductDetails">
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="350dp">
+
+    <ImageView
+        android:id="@+id/detailimg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/detailname"
+        android:layout_marginBottom="0dp"
+        android:foregroundGravity="center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/hp1" />
+
+    <TextView
+        android:id="@+id/detailname"
+        android:layout_width="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:fontFamily="@font/poppinsbold"
+        android:gravity="center"
+        android:text="Nama Hp"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
+
+  </RelativeLayout>
+
+  <TextView
+      android:id="@+id/textView4"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="350dp"
+      android:text="Rp. 1234568"
+      tools:layout_marginLeft="10dp" />
+
+  <TextView
+      android:id="@+id/textView3"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentStart="false"
+      android:layout_alignParentEnd="true"
+      android:layout_alignParentBottom="true"
+      android:fontFamily="@font/poppinsmedium"
+      android:gravity="start"
+      android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mattis tempor felis sit amet ornare. Phasellus convallis metus at nisl elementum, at ullamcorper nulla rhoncus. Proin bibendum sollicitudin velit porttitor placerat. Maecenas nibh urna, pulvinar ut vehicula vestibulum, mollis eget dolor. Donec eleifend lectus id sollicitudin ullamcorper. Nullam odio libero, aliquam vel posuere sed, facilisis non nisl. Donec elementum elit in nisl fermentum, in ultricies enim sollicitudin."
+      android:textColor="@color/black"
+      android:textSize="15sp"
+      tools:layout_marginLeft="10dp"
+      tools:layout_marginRight="10dp"
+      tools:layout_marginTop="500dp" />
+
+</androidx.cardview.widget.CardView>
