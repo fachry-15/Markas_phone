@@ -1,11 +1,14 @@
 package com.example.finalpr;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.finalpr.adapters.ItemAdapter;
 import com.example.finalpr.adapters.ItemAdapter1;
@@ -13,36 +16,50 @@ import com.example.finalpr.adapters.ItemAdapter1;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 public class ProductActivity extends AppCompatActivity {
 
     //RecyclerView
     RecyclerView recyclerView;
-    List<Model> itemList;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
 
         recyclerView = findViewById(R.id.recyclerproduk);
         recyclerView.setHasFixedSize(true);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(),2);
+
+        getProducts();
+    }
+
+    private void getProducts() {
+        Call<List<ProductResult>> apiCall = RetrofitClient.getInsance().getApis().getProducts();
+        apiCall.enqueue(new Callback<List<ProductResult>>() {
+            @Override
+            public void onResponse(Call<List<ProductResult>> call, Response<List<ProductResult>> response) {
+                List<ProductResult> productResults = response.body();
+                Toast.makeText(ProductActivity.this, "Got Products", Toast.LENGTH_SHORT).show();
+                setAdapter(productResults);
+            }
+
+            @Override
+            public void onFailure(Call<List<ProductResult>> call, Throwable t) {
+                Toast.makeText(ProductActivity.this,"Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void setAdapter(List<ProductResult> productResults) {
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
         gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(gridLayoutManager);
-
-        recyclerView.setAdapter(new ItemAdapter1(initData()));
+        ItemAdapter1 itemAdapter1 = new ItemAdapter1(this,productResults);
+        recyclerView.setAdapter(itemAdapter1);
     }
 
-    private List<Model> initData() {
-
-        itemList = new ArrayList<>();
-        itemList.add(new Model(R.drawable.hp1, "Dummy"));
-        itemList.add(new Model(R.drawable.hp2, "Dummy"));
-        itemList.add(new Model(R.drawable.hp3, "Dummy"));
-        itemList.add(new Model(R.drawable.hp4, "Dummy"));
-        itemList.add(new Model(R.drawable.hp5, "Dummy"));
-        itemList.add(new Model(R.drawable.hp6, "Dummy"));
-
-        return itemList;
-    }
 }

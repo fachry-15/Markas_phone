@@ -30,6 +30,7 @@
             android:textColor="@color/white"
             android:textStyle="bold"
             android:fontFamily="@font/poppinsbold"
+            android:text="dummy"
             />
 
     </RelativeLayout>
