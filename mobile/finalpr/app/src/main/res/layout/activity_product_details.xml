@@ -11,11 +11,11 @@
 
   <ScrollView
       android:layout_width="match_parent"
-      android:layout_height="927dp">
+      android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="500dp">
 
       <ImageView
           android:id="@+id/detailimg"
@@ -74,7 +74,7 @@
           android:layout_below="@+id/detailprice"
           android:layout_alignParentStart="false"
           android:layout_alignParentEnd="true"
-          android:layout_alignParentBottom="true"
+          android:layout_alignParentBottom="false"
           android:layout_marginTop="20dp"
           android:fontFamily="@font/poppinsmedium"
           android:gravity="start"
@@ -83,6 +83,61 @@
           android:textSize="15sp"
           tools:layout_marginLeft="10dp"
           tools:layout_marginRight="10dp" />
+
+      <Button
+          android:id="@+id/button"
+          android:layout_width="176dp"
+          android:layout_height="48dp"
+          android:layout_below="@+id/detailspek"
+          android:layout_alignParentEnd="true"
+          android:layout_alignParentBottom="true"
+          android:layout_marginTop="150dp"
+          android:layout_marginRight="20dp"
+          android:layout_marginBottom="0dp"
+          android:text="Checkout" />
+
+      <Button
+          android:id="@+id/button2"
+          android:layout_width="48dp"
+          android:layout_height="48dp"
+          android:layout_below="@+id/detailspek"
+          android:layout_alignParentStart="true"
+          android:layout_marginLeft="20dp"
+          android:layout_marginTop="155dp"
+          android:background="@drawable/ic_baseline_remove_24" />
+
+      <ImageView
+          android:id="@+id/imageView"
+          android:layout_width="48dp"
+          android:layout_height="48dp"
+          android:layout_below="@+id/detailspek"
+          android:layout_marginStart="0dp"
+          android:layout_marginTop="155dp"
+          android:layout_toEndOf="@+id/button2"
+          app:srcCompat="@android:drawable/editbox_dropdown_light_frame" />
+
+      <Button
+          android:id="@+id/button3"
+          android:layout_width="48dp"
+          android:layout_height="48dp"
+          android:layout_below="@+id/detailspek"
+          android:layout_marginStart="0dp"
+          android:layout_marginTop="155dp"
+          android:layout_toEndOf="@+id/imageView"
+          android:background="@drawable/ic_baseline_add_24" />
+
+      <TextView
+          android:id="@+id/textView3"
+          android:layout_width="43dp"
+          android:layout_height="31dp"
+          android:layout_below="@+id/detailspek"
+          android:layout_marginStart="2dp"
+          android:layout_marginTop="161dp"
+          android:layout_toEndOf="@+id/button2"
+          android:fontFamily="@font/poppinsmedium"
+          android:gravity="center"
+          android:text="700"
+          android:textColor="@color/black" />
 
     </RelativeLayout>
   </ScrollView>
