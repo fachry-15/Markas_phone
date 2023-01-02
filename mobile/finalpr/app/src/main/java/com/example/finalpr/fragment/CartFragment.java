@@ -30,5 +30,6 @@ public class CartFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         return view;
+
     }
 }

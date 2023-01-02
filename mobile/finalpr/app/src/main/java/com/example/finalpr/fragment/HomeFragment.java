@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-import com.example.finalpr.Model;
+import com.example.finalpr.models.Model;
 import com.example.finalpr.R;
 import com.example.finalpr.adapters.ItemAdapter;
 import com.example.finalpr.adapters.SliderAdapter;

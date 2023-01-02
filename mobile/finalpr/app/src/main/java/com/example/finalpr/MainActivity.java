@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -12,12 +11,12 @@ import android.view.MenuItem;
 import com.example.finalpr.fragment.CartFragment;
 import com.example.finalpr.fragment.HomeFragment;
 import com.example.finalpr.fragment.ProfileFragment;
-import com.example.finalpr.fragment.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
+    SharedPrefManager sharedPrefManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         //slider
         showHomeFragment();
+
+        sharedPrefManager=new SharedPrefManager(getApplicationContext());
         
         //navbot
         bottomNavigationView = findViewById(R.id.bottom_nav);
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                         transaction.commit();
                         break;
                 }
-                return false;
+                return true;
             }
         });
     }

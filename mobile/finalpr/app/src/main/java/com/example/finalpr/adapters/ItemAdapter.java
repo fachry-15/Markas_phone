@@ -10,8 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.finalpr.Model;
-import com.example.finalpr.ProductActivity;
+import com.example.finalpr.models.Model;
+import com.example.finalpr.product.ProductActivity;
 import com.example.finalpr.R;
 
 import java.util.List;

@@ -13,8 +13,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.finalpr.ProductDetails;
-import com.example.finalpr.ProductResult;
+import com.example.finalpr.product.ProductDetails;
+import com.example.finalpr.models.ProductResult;
 import com.example.finalpr.R;
 
 import java.util.List;
