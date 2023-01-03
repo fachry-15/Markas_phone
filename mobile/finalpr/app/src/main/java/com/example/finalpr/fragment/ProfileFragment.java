@@ -1,36 +1,31 @@
 package com.example.finalpr.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.example.finalpr.MainActivity;
 import com.example.finalpr.R;
-import com.example.finalpr.SharedPrefManager;
-import com.google.android.material.textfield.TextInputEditText;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.example.finalpr.databinding.FragmentProfileBinding;
+import com.example.finalpr.logres.LoginActivity;
 
 public class ProfileFragment extends Fragment {
 
-    TextView tvp1, tvp2, tvp3, tvp4;
+    private FragmentProfileBinding binding;
+    TextView tvp4;
     SharedPreferences sharedPreferences;
-
+    Button btn;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -47,7 +42,29 @@ public class ProfileFragment extends Fragment {
 
 
         tvp4.setText(getActivity().getIntent().getStringExtra("username"));
+
+        btn = view.findViewById(R.id.btnLogout);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                intent.putExtra("key",tvp4.getText().toString());
+                startActivity(intent);
+            }
+        });
+
+        if(sharedPreferences.contains("username")){
+            tvp4.setText(sharedPreferences.getString("username", ""));
+        }
+
         return view;
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+
 
 }

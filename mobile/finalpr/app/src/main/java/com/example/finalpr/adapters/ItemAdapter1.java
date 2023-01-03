@@ -48,6 +48,7 @@ public class ItemAdapter1 extends RecyclerView.Adapter<ItemAdapter1.ViewHolder> 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, ProductDetails.class);
+                intent.putExtra("id_barang",temp.getIdBarang());
                 intent.putExtra("image",temp.getUrlGambar());
                 intent.putExtra("title",temp.getNamaHp());
                 intent.putExtra("spek",temp.getSpesifikasi());
@@ -61,7 +62,8 @@ public class ItemAdapter1 extends RecyclerView.Adapter<ItemAdapter1.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return productResults.size();
+        int size = productResults.size();
+        return size;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

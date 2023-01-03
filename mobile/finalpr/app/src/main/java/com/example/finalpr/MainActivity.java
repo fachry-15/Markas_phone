@@ -16,7 +16,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
-    SharedPrefManager sharedPrefManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
         //slider
         showHomeFragment();
-
-        sharedPrefManager=new SharedPrefManager(getApplicationContext());
         
         //navbot
         bottomNavigationView = findViewById(R.id.bottom_nav);
@@ -39,10 +36,6 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.menu_home:
                         transaction.replace(R.id.fragment_container, new HomeFragment());
-                        transaction.commit();
-                        break;
-                    case R.id.menu_search:
-                        transaction.replace(R.id.fragment_container, new SearchFragment());
                         transaction.commit();
                         break;
                     case R.id.menu_cart:

@@ -9,7 +9,7 @@ public class ProductResult {
 
     @SerializedName("id_barang")
     @Expose
-    private Integer idBarang;
+    private String idBarang;
     @SerializedName("merek")
     @Expose
     private String merek;
@@ -21,16 +21,16 @@ public class ProductResult {
     private String spesifikasi;
     @SerializedName("harga")
     @Expose
-    private Integer harga;
+    private String harga;
     @SerializedName("url_gambar")
     @Expose
     private String urlGambar;
 
-    public Integer getIdBarang() {
+    public String getIdBarang() {
         return idBarang;
     }
 
-    public void setIdBarang(Integer idBarang) {
+    public void setIdBarang(String idBarang) {
         this.idBarang = idBarang;
     }
 
@@ -58,11 +58,11 @@ public class ProductResult {
         this.spesifikasi = spesifikasi;
     }
 
-    public Integer getHarga() {
+    public String getHarga() {
         return harga;
     }
 
-    public void setHarga(Integer harga) {
+    public void setHarga(String harga) {
         this.harga = harga;
     }
 
