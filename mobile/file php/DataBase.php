@@ -55,13 +55,12 @@ class DataBase
     function signUp($table, $email, $No_telepon, $Alamat_utama, $username, $password)
     {
         $email = $this->prepareData($email);
-        $password = $this->prepareData($No_telepon);
+        $password = $this->prepareData($password);
         $Alamat_utama = $this->prepareData($Alamat_utama);
         $username = $this->prepareData($username);
-        $No_telepon = $this->prepareData($password);
+        $No_telepon = $this->prepareData($No_telepon);
         $this->sql =
-            "insert into " .$table. " (email, No_telepon, Alamat_utama, username, password) values ('" . $email . "',
-            '" . $No_telepon . "','" . $Alamat_utama . "','" . $username . "','" . $password . "')";
+            "INSERT INTO `user` (`email`, `password`, `Alamat_utama`, `id_user`, `username`, `penerima`, `No_telepon`) VALUES ('".$email."', '".$password."', '".$Alamat_utama."', NULL, '".$username."', '', '".$No_telepon."');";
         if (mysqli_query($this->connect, $this->sql)) {
             return true;
         } else return false;

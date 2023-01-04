@@ -2,9 +2,9 @@
 
  //database constants
  define('DB_HOST', 'localhost');
- define('DB_USER', 'id20065870_markas');
- define('DB_PASS', '@Markasphone123');
- define('DB_NAME', 'id20065870_db_markas');
+ define('DB_USER', 'root');
+ define('DB_PASS', '');
+ define('DB_NAME', 'db_markas');
  
  //connecting to database and getting the connection object
  $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
@@ -15,7 +15,7 @@
  die();
  }
  //creating a query
- $stmt = $conn->prepare("SELECT id_barang, merek, nama_hp, spesifikasi, harga, gambar FROM products;");
+ $stmt = $conn->prepare("SELECT id_barang, merek, nama_hp, spesifikasi, harga, url_gambar FROM products;");
  
  //executing the query 
  $stmt->execute();
@@ -33,7 +33,7 @@
  $temp['nama_hp'] = $nama_hp; 
  $temp['spesifikasi'] = $spesifikasi;
  $temp['harga'] = $harga; 
- $temp['gambar'] = $gambar; 
+ $temp['url_gambar'] = $gambar; 
  array_push($products, $temp);
  }
 
